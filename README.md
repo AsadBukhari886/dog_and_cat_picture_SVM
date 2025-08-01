@@ -17,5 +17,4 @@ This project implements a pipeline to classify images of dogs and cats using:
 - **Training Data**: Custom labeled images with filenames containing either "dog" or "cat"
 - **Testing Data**: Unlabeled images used for prediction and output
 
-## 🗂️ Project Structure
 
