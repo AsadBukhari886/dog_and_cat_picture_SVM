@@ -1,111 +1,103 @@
+
+markdown
+Copy
+Edit
 # 🐶🐱 Dog vs. Cat Image Classifier using SVM
 
-A binary image classification project that distinguishes between dog and cat images using classical machine learning techniques. Built with Python, Scikit-learn, OpenCV, PIL, and SVM from scratch.
+A binary image classification project that distinguishes between dog and cat images using classical machine learning techniques. Built with Python, Scikit-learn, OpenCV, and PIL.
 
 ## 📌 Project Overview
 
-This project implements a pipeline to classify images of dogs and cats using:
-- Traditional ML models: **Support Vector Machine (SVM)** and **Logistic Regression**
+This project uses a **Support Vector Machine (SVM)** and **Logistic Regression** to classify grayscale images of dogs and cats based on their histogram features. It includes:
 - Image preprocessing: resizing, grayscale conversion, histogram extraction, and Gaussian blur
-- Custom training and prediction scripts
-- CSV output for label predictions (e.g., suitable for Kaggle format)
+- Manual label extraction from filenames
+- Model training and probability-based prediction
+- Results export in CSV format (Kaggle-style)
 
 ## 🧠 Model Summary
 
-- **Model**: Linear SVM (via `sklearn.svm.LinearSVC`) and Logistic Regression
-- **Feature Extraction**: Histogram values of 64x64 grayscale images
-- **Training Data**: Custom labeled images with filenames containing either "dog" or "cat"
-- **Testing Data**: Unlabeled images used for prediction and output
+- **Model**: Linear SVM and Logistic Regression
+- **Features**: Histogram of 64×64 grayscale, blurred images
+- **Data**: Images should be placed in `../input/train/` and `../input/test/` (relative to the script)
 
-## 🗂️ Project Structure
+## 🗂️ Files in this Repository
 
-dog_and_cat_picture_SVM/
-├── input/
-│ ├── train/ # Contains training images (e.g., dog.123.jpg, cat.456.jpg)
-│ ├── test/ # Contains testing images for prediction
-├── my_SVM.py # Main script for training and testing
-├── results.csv # Output predictions (id, label)
-└── README.md # Project documentation
+.
+├── data.csv # (Optional) Local dataset preview or logs
+├── dogsVScats.csv # Output predictions (id, label)
+├── MSR-LA - 3467.docx # Related report or documentation (if any)
+├── my_SVM.py # Main script for training and testing the model
+├── readme[1].txt # Backup or rough readme version
+├── tempCodeRunnerFile.py # Temporary VS Code runner file
+└── README.md # This documentation
 
-perl
+shell
 Copy
 Edit
 
-## 🔧 Installation & Setup
+> **Note:** Image data (train/test images) must be stored locally in a path like `../input/train/` and `../input/test/`. These are not included in this repository.
 
-Ensure you have Python 3 installed and run the following to install required libraries:
+## 🔧 Setup Instructions
+
+Install required libraries:
 
 ```bash
 pip install numpy pandas opencv-python scikit-learn pillow
-Place the dataset under the input/ folder:
+Download and extract the Kaggle Dogs vs. Cats dataset, and place:
 
-Training images go into input/train/
+Training images in: ../input/train/
 
-Testing images go into input/test/
-
-You can use the Kaggle Dogs vs. Cats dataset.
+Test images in: ../input/test/
 
 🚀 How to Run
-To train the model and generate predictions:
+Run the main script:
 
 bash
 Copy
 Edit
 python my_SVM.py
-The following steps occur:
+This performs:
 
-Label Extraction: Images with filenames containing "dog" are labeled 1, otherwise 0.
+Label extraction from image filenames
 
-Preprocessing:
+Preprocessing: resize → grayscale → blur → histogram
 
-Convert to grayscale
+Training with SVM / Logistic Regression
 
-Resize to 64x64
+Prediction with probability calibration
 
-Apply Gaussian blur
-
-Extract histogram features
-
-Model Training:
-
-Trains an SVM or Logistic Regression on all training data
-
-Prediction:
-
-Runs the trained model on test images
-
-Outputs results to results.csv in (id, label) format
+CSV export of results in dogsVScats.csv
 
 📊 Output Format
-The prediction results are saved as:
+Sample dogsVScats.csv:
 
 csv
 Copy
 Edit
 id,label
-1,0.89
-2,0.12
-3,0.96
+1,0.91
+2,0.07
+3,0.62
 ...
-Where label is the model's confidence score for the "dog" class.
+Where label is the confidence score that the image is a dog (1) or cat (0).
 
-📈 Accuracy Evaluation
-The script includes a getResults() function to evaluate predictions on a held-out set by comparing predicted probabilities against actual labels and calculating the classification accuracy.
+📈 Accuracy Evaluation (Optional)
+The script includes a getResults() function that can be used to calculate accuracy on a validation split from the training set.
 
 🧪 Technologies Used
 Python
 
+NumPy, Pandas
+
 Scikit-learn (LinearSVC, LogisticRegression)
 
-Pillow (PIL) for image manipulation
+Pillow (PIL)
 
-OpenCV for preprocessing
+OpenCV
 
-NumPy / Pandas for numerical operations
-
-📝 License
-This project is open-source and free to use for educational or research purposes.
+📄 License
+This project is free to use for educational and non-commercial purposes.
 
 🙋‍♂️ Author
 Asad Bukhari
-Feel free to reach out for questions or collaboration!
+For queries or feedback, feel free to connect or raise an issue.
