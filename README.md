@@ -1,7 +1,4 @@
 
-markdown
-Copy
-Edit
 # 🐶🐱 Dog vs. Cat Image Classifier using SVM
 
 A binary image classification project that distinguishes between dog and cat images using classical machine learning techniques. Built with Python, Scikit-learn, OpenCV, and PIL.
@@ -31,9 +28,7 @@ This project uses a **Support Vector Machine (SVM)** and **Logistic Regression**
 ├── tempCodeRunnerFile.py # Temporary VS Code runner file
 └── README.md # This documentation
 
-shell
-Copy
-Edit
+
 
 > **Note:** Image data (train/test images) must be stored locally in a path like `../input/train/` and `../input/test/`. These are not included in this repository.
 
@@ -41,7 +36,7 @@ Edit
 
 Install required libraries:
 
-```bash
+```
 pip install numpy pandas opencv-python scikit-learn pillow
 Download and extract the Kaggle Dogs vs. Cats dataset, and place:
 
@@ -52,9 +47,7 @@ Test images in: ../input/test/
 🚀 How to Run
 Run the main script:
 
-bash
-Copy
-Edit
+
 python my_SVM.py
 This performs:
 
@@ -71,9 +64,7 @@ CSV export of results in dogsVScats.csv
 📊 Output Format
 Sample dogsVScats.csv:
 
-csv
-Copy
-Edit
+
 id,label
 1,0.91
 2,0.07
